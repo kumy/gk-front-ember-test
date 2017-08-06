@@ -1,0 +1,40 @@
+{{#bs-form formLayout="horizontal" onSubmit=(action "authenticate") as |form|}}
+
+  {{form.element
+    controlType="text"
+    id=username
+    label="Username"
+    placeholder="Username"
+    value=username
+    onChange=(action (mut value))
+    data-test-username-field=username
+  }}
+
+  {{form.element
+    controlType="password"
+    id=password
+    label="Password"
+    placeholder="Password"
+    value=password
+    onChange=(action (mut value))
+    data-test-password-field=password
+  }}
+
+  {{form.element
+    controlType="checkbox"
+    label="Remember me"
+    value=rememberMe
+    data-test-remember-me-checkbox=rememberMe
+  }}
+
+  {{bs-button
+    defaultText="Submit"
+    type="primary"
+    buttonType="submit"
+    data-test-submit-button="submit"
+  }}
+{{/bs-form}}
+
+{{#if errorMessage}}
+  <p>{{errorMessage}}</p>
+{{/if}}

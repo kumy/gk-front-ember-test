@@ -1,0 +1,8 @@
+<div>
+	<img class="avatar img-circle" src={{picture.thumbnailUrl}} title={{picture.description}} alt="A GeoKret picture">
+	{{#if hasBlock}}
+		{{yield}}
+	{{else}}
+		{{picture.description}}
+	{{/if}}
+</div>

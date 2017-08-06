@@ -1,0 +1,162 @@
+<div class="container">
+	{{#bs-navbar as |navbar|}}
+		<div class="navbar-header">
+			{{navbar.toggle}}
+			{{#link-to 'index' class="navbar-brand" }}
+				<img alt="GeoKrety.org" src="http://geokrety.org/rzeczy/logo/geokrety.svg">
+			{{/link-to}}
+		</div>
+		{{#navbar.content}}
+			{{#navbar.nav as |nav|}}
+				{{#nav.item}}
+					{{#nav.link-to "index" data-test-home-link}}Home{{/nav.link-to}}
+				{{/nav.item}}
+				{{#nav.item}}
+					{{#nav.link-to "move" data-test-log-a-geokret-link}}Log a GeoKret{{/nav.link-to}}
+				{{/nav.item}}
+
+				{{#if session.isAuthenticated}}
+					{{#nav.item}}
+						{{#nav.link-to "register-geokret" data-test-register-a-new-geokret-link}}Register a new GeoKret{{/nav.link-to}}
+					{{/nav.item}}
+					{{#nav.dropdown tagName="li" as |dd|}}
+						{{#dd.toggle}}My account <span class="caret"></span>{{/dd.toggle}}
+						{{#dd.menu as |ddm|}}
+							{{#ddm.item}}
+								{{#ddm.link-to "index"}}Account details{{/ddm.link-to}}
+							{{/ddm.item}}
+							{{#ddm.item}}
+								{{#ddm.link-to "index"}}GeoKrety in my inventory{{/ddm.link-to}}
+							{{/ddm.item}}
+							{{#ddm.item}}
+								{{#ddm.link-to "index"}}My GeoKrety{{/ddm.link-to}}
+							{{/ddm.item}}
+							{{#ddm.item}}
+								{{#ddm.link-to "index"}}Watched GeoKrety{{/ddm.link-to}}
+							{{/ddm.item}}
+							{{#ddm.item}}
+								{{#ddm.link-to "index"}}Recent moves of my GeoKrety{{/ddm.link-to}}
+							{{/ddm.item}}
+							{{#ddm.item}}
+								{{#ddm.link-to "index"}}Photos of my GeoKrety{{/ddm.link-to}}
+							{{/ddm.item}}
+							{{#ddm.item}}
+								{{#ddm.link-to "index"}}Where are my GeoKrety{{/ddm.link-to}}
+							{{/ddm.item}}
+						{{/dd.menu}}
+					{{/nav.dropdown}}
+					{{#nav.item}}
+						{{#nav.link-to "logout" data-test-logout-button}}Logout{{/nav.link-to}}
+					{{/nav.item}}
+				{{else}}
+					{{#nav.item}}
+						{{#nav.link-to "login" data-test-login-button}}Login{{/nav.link-to}}
+					{{/nav.item}}
+				{{/if}}
+
+				{{#nav.item}}
+					{{#nav.link-to "search" data-test-search-link}}Search{{/nav.link-to}}
+				{{/nav.item}}
+				{{#nav.item}}
+					{{#nav.link-to "photo-gallery" data-test-photo-gallery-link}}Photo gallery{{/nav.link-to}}
+				{{/nav.item}}
+
+				{{#nav.dropdown tagName="li" as |dd|}}
+					{{#dd.toggle}}Statistics <span class="caret"></span>{{/dd.toggle}}
+					{{#dd.menu as |ddm|}}
+						{{#ddm.item}}
+							{{#ddm.link-to "index"}}Statistics{{/ddm.link-to}}
+						{{/ddm.item}}
+						{{#ddm.item}}
+							{{#ddm.link-to "index"}}Stats by country{{/ddm.link-to}}
+						{{/ddm.item}}
+						{{#ddm.item}}
+							{{#ddm.link-to "index"}}Probably lost GeoKrety{{/ddm.link-to}}
+						{{/ddm.item}}
+					{{/dd.menu}}
+				{{/nav.dropdown}}
+
+				{{#nav.item}}
+					{{#nav.link-to "downloads" data-test-downloads-link}}Downloads{{/nav.link-to}}
+				{{/nav.item}}
+				{{#nav.item}}
+					{{#nav.link-to "news" data-test-news-link}}News{{/nav.link-to}}
+				{{/nav.item}}
+
+				{{#nav.dropdown tagName="li" as |dd|}}
+					{{#dd.toggle}}Help / Docs <span class="caret"></span>{{/dd.toggle}}
+					{{#dd.menu as |ddm|}}
+						{{#ddm.item}}
+							{{#ddm.link-to "index"}}Help{{/ddm.link-to}}
+						{{/ddm.item}}
+						{{#ddm.item}}
+							{{#ddm.link-to "index"}}Help in english{{/ddm.link-to}}
+						{{/ddm.item}}
+						{{#ddm.item}}
+							{{#ddm.link-to "index"}}Moleholes and GK hotels{{/ddm.link-to}}
+						{{/ddm.item}}
+						{{#ddm.item}}
+							{{#ddm.link-to "index"}}Press corner{{/ddm.link-to}}
+						{{/ddm.item}}
+						{{#ddm.item}}
+							{{#ddm.link-to "index"}}Terms of use{{/ddm.link-to}}
+						{{/ddm.item}}
+						{{#ddm.item}}
+							{{#ddm.link-to "index"}}GK interface / api{{/ddm.link-to}}
+						{{/ddm.item}}
+					{{/dd.menu}}
+				{{/nav.dropdown}}
+
+
+				{{#nav.dropdown tagName="li" as |dd|}}
+					{{#dd.toggle}}Side products <span class="caret"></span>{{/dd.toggle}}
+					{{#dd.menu as |ddm|}}
+						{{#ddm.item}}
+							{{#ddm.link-to "index"}}Map of caches{{/ddm.link-to}}
+						{{/ddm.item}}
+						{{#ddm.item}}
+							{{#ddm.link-to "index"}}GeoKretyMap.org{{/ddm.link-to}}
+						{{/ddm.item}}
+						{{#ddm.item}}
+							{{#ddm.link-to "index"}}GeoKrety Toolbox{{/ddm.link-to}}
+						{{/ddm.item}}
+						{{#ddm.item}}
+							{{#ddm.link-to "index"}}Waypoint resolver{{/ddm.link-to}}
+						{{/ddm.item}}
+					{{/dd.menu}}
+				{{/nav.dropdown}}
+
+				{{#nav.item}}
+					{{#nav.link-to "about" data-test-about-link}}About{{/nav.link-to}}
+				{{/nav.item}}
+				{{#nav.item}}
+					{{#nav.link-to "hall-of-fame" data-test-hall-of-fame-link }}Hall of fame{{/nav.link-to}}
+				{{/nav.item}}
+				{{#nav.item}}
+					{{#nav.link-to "contact" data-test-contact-link }}Contact{{/nav.link-to}}
+				{{/nav.item}}
+			{{/navbar.nav}}
+
+
+			<!-- {{#navbar.nav class="navbar-right" as |nav|}}
+				{{#nav.item}}
+					{{#bs-form class="navbar-form navbar-right" role="search" as |form|}}
+						{{#form.group}}
+							<div class="input-group">
+								<input type="text" class="form-control" placeholder="Search for...">
+								<span class="input-group-btn">
+						<button class="btn btn-default" type="button">Go!</button>
+					</span>
+							</div>
+						{{/form.group}}
+					{{/bs-form}}
+				{{/nav.item}}
+			{{/navbar.nav}} -->
+
+		{{/navbar.content}}
+	{{/bs-navbar}}
+
+	<div class="body">
+		{{outlet}}
+	</div>
+</div>

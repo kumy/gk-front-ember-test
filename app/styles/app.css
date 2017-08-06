@@ -1,0 +1,139 @@
+body {
+  background-color: #f5f8fa;
+}
+
+.page-header {
+  margin: 0 0 0 25px;
+}
+
+.navbar-brand {
+  padding: 7px 0 0 15px;
+}
+
+.info-box {
+  background-color: #fff;
+  border: 1px solid rgba(0, 0, 0, 0.125);
+  border-radius: 0.25rem;
+  margin-bottom: 1.5em;
+}
+
+.info-box .inner {
+padding: 1.25rem;
+}
+
+.info-box h6 {
+  font-weight: bold;
+}
+
+.user-heading .background {
+  height: 150px;
+  background-repeat: no-repeat;
+  background-size: cover;
+	border-radius: calc(0.25rem - 1px) calc(0.25rem - 1px) 0 0;
+}
+
+.user-heading img.avatar {
+  max-width: 100px;
+  margin-top: -70px;
+  margin-bottom: 5px;
+}
+
+.user-heading h6.username {
+  margin-top: 5px;
+}
+
+ul.statistics {
+  list-style: none;
+  padding: 0;
+}
+
+li.statistics-item {
+  display: inline-block;
+  padding: 0 10px;
+  border-right: 1px solid #d4dbe0;
+}
+
+li.statistics-item:last-child {
+  border-right: 0;
+}
+
+.user-about ul, .user-nav-links ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.user-about ul > li, .user-nav-links ul > li {
+  margin-bottom: 5px;
+}
+
+.geokret-heading {
+  min-height: 260px;
+}
+
+.geokret-heading .background {
+  width: : 25px;
+  height: 25px;
+  background-repeat: no-repeat;
+  background-size: auto;
+	border-radius: calc(0.25rem - 1px) calc(0.25rem - 1px) 0 0;
+}
+
+.geokret-heading img.avatar {
+  max-width: 100px;
+  /*margin-top: -70px;*/
+  margin-bottom: 5px;
+}
+
+.geokret-heading .icon-bar {
+    /*width: 24px;*/
+    /*background-color: #aaa;*/
+    float: left;
+}
+.geokret-heading .icon-bar-right {
+    float: right;
+}
+
+/*.icon-bar a, .icon-bar span {
+    display: block; /* Make the links appear below each other instead of side-by-side */
+    text-align: center; /* Center-align text */
+    padding: 3px; /* Add some padding */
+    transition: all 0.3s ease; /* Add transition for hover effects */
+    /*color: white; /* White text color */*/
+    font-size: 18px; /* Increased font-size */
+}*/
+
+.geokret-heading .icon-bar a:hover {
+    background-color: #000; /* Add a hover color */
+}
+
+.geokret-heading .icon-bar a.active {
+    /*background-color: #4CAF50; /* Add an active/current color */*/
+}
+
+.geokret-heading .icon-bar i {
+  color: #bebebe;
+}
+
+.geokret-heading .icon-bar button.active i {
+  color: #000;
+}
+
+.geokret-heading .icon-bar i.fa-star.active {
+  color: #ffb90f;
+}
+
+.geokret-heading .icon-bar i.fa-cloud.active {
+  color: #cd0000;
+}
+
+.geokret-heading .icon-bar i.fa-eye.active {
+  color: #4876ff;
+}
+
+.geokret-heading .icon-bar i.fa-briefcase.active {
+  color: #8b4513;
+}
+
+.green {
+    color: #4CAF50;
+}

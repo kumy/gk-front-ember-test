@@ -18,6 +18,7 @@ Router.map(function() {
   this.route('downloads');
   this.route('news');
   this.route('hall-of-fame');
+  this.route('help');
 });
 
 export default Router;

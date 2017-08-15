@@ -1,0 +1,54 @@
+<div class="landing-picture">
+
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8 col-sm-12 col-xs-12">
+        <div class="welcome-text">
+          <h1>Welcome to GeoKrety.org!</h1>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-8 col-sm-12 col-xs-12">
+        <div class="welcome-subtext">
+          <p>Found a GeoKrety?</p>
+        </div>
+
+
+        {{#bs-form class="form-inline" as |form|}}
+          {{#form.group validation=firstNameValidation}}
+            <input value={{search}} class="form-control input-lg" type="text" placeholder="Tracking code number">
+          {{/form.group}}
+          {{bs-button defaultText="Search" buttonType="submit" class="input-lg"}}
+        {{/bs-form}}
+
+      </div>
+    </div>
+  </div>
+
+  <!-- <div class="jumbotron">
+    <p class="lead">
+      This service is similar to TravelBug(TM) or GeoLutins and aims at tracking things you put to geocache containers...
+      {{#link-to 'help'}}
+        read more...
+      {{/link-to}}
+    </p>
+
+    <p>
+      <ul>
+        <li><b>64 592</b> registered GeoKrets</li>
+        <li><b>32 357</b> GeoKrets hidden</li>
+        <li><b>37 193</b> users</li>
+        <li><b>99 335 200</b> km done by all GeoKrets</li>
+        <li>it is:</li>
+        <ul>
+          <li><b>258.41</b> x distance from the Earth to the Moon</li>
+          <li><b>2 480.81</b> x the Earth equatorial circumference</li>
+          <li><b>0.66401</b> x the distance from the Earth to the Sun</li>
+        </ul>
+      </ul>
+    </p>
+  </div> -->
+
+  {{outlet}}
+</div>

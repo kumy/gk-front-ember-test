@@ -1,5 +1,5 @@
 import Ember from 'ember';
-import UnauthenticatedRouteMixin from 'ember-simple-auth/mixins/unauthenticated-route-mixin';
+import ApplicationRouteMixin from 'ember-simple-auth/mixins/application-route-mixin';
 
-export default Ember.Route.extend(UnauthenticatedRouteMixin, {
+export default Ember.Route.extend(ApplicationRouteMixin, {
 });

@@ -1,0 +1,18 @@
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">{{news.title}}</h3>
+  </div>
+  <div class="panel-body">
+    {{{news.content}}}
+  </div>
+  <div class="panel-footer">
+    <div class="pull-right">
+      {{#link-to "news-details" news.id}}Comments ({{news.commentsCount}}){{/link-to}}
+      -
+      {{moment-format news.date 'MMMM D, YYYY'}}
+      -
+      {{#link-to-user user=news.author}}{{news.username}}{{/link-to-user}}
+    </div>
+    <div class="clearfix"></div>
+  </div>
+</div>

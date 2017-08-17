@@ -4,6 +4,12 @@ body {
 
 .wrapper > .container {
   margin-top: 50px;
+  padding-bottom: 25px;
+}
+
+.user-anonymous {
+  font-style: italic;
+  color: gray;
 }
 
 .landing-picture {
@@ -38,7 +44,7 @@ body {
 }
 
 .page-header {
-  margin: 70px 0 0 25px;
+  margin: 70px 0 25px 25px;
 }
 
 .navbar-brand {

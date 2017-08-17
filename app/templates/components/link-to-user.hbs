@@ -1,0 +1,11 @@
+{{#if user.username}}
+  {{#link-to 'user'}}{{user.username}}{{/link-to}}
+{{else}}
+  <span class="user-anonymous">
+    {{#if not yield}}
+      Anonymous
+    {{else}}
+      {{yield}}
+    {{/if}}
+    </span>
+{{/if}}

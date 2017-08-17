@@ -1,6 +1,23 @@
 import DS from 'ember-data';
+import {
+  validator,
+  buildValidations
+} from 'ember-cp-validations';
 
-export default DS.Model.extend({
+const Validations = buildValidations({
+  username: {
+    description: 'Comment',
+    validators: [
+      validator('presence', true),
+      validator('length', {
+        min: 10,
+        max: 125
+      })
+    ]
+  },
+});
+
+export default DS.Model.extend(Validations, {
 	username: DS.attr('string'),
 	email: DS.attr('string'),
 	joined: DS.attr('date'),
@@ -29,4 +46,6 @@ export default DS.Model.extend({
 	geokretyInventory: DS.hasMany('geokret', {inverse: 'holder'}),
 	picturesOwned: DS.hasMany('picture', {inverse: 'owner'}),
 	moves: DS.hasMany('move', {inverse: 'user'}),
+	news: DS.hasMany('news', {inverse: 'author'}),
+	newsComments: DS.hasMany('newsComments', {inverse: 'author'}),
 });

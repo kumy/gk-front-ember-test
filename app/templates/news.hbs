@@ -1,4 +1,10 @@
-<div class="page-header">
-  <h1>News</h1>
+<div class="container">
+  <div class="page-header">
+    <h1>News</h1>
+  </div>
+
+  {{#each model as |a-news|}}
+    {{news-show news=a-news}}
+  {{/each}}
+
 </div>
-{{outlet}}

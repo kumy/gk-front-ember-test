@@ -1,0 +1,23 @@
+<div class="container">
+  <div class="page-header">
+    <h1>News</h1>
+  </div>
+
+  {{news-show news=model}}
+  <hr>
+
+    {{news-comment-post}}
+    
+  {{#if session.isAuthenticated}}
+    {{news-comment-post}}
+  {{else}}
+    <p>You must be logged in to post comment</p>
+  {{/if}}
+
+  <hr>
+
+  {{#each model.comments as |comment|}}
+    {{news-comment-show comment=comment}}
+  {{/each}}
+
+</div>

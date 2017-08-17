@@ -1,0 +1,19 @@
+{{#bs-form onSubmit=(action "submitAction") onInvalid=(action "invalidForm") model=this.newsComment as |form|}}
+  {{form.element
+    controlType="textarea"
+    label="Leave a comment"
+    placeholder="Type your message..."
+    rows="4"
+    property="comment"
+    data-test-comment-field=comment
+  }}
+
+  {{bs-button
+    defaultText="Post comment"
+    type="primary"
+    class="btn btn-lg btn-block"
+    buttonType="submit"
+    data-test-submit-button="submit"
+  }}
+
+{{/bs-form}}

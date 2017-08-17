@@ -16,9 +16,11 @@ Router.map(function() {
   this.route('search');
   this.route('photo-gallery');
   this.route('downloads');
-  this.route('news');
   this.route('hall-of-fame');
   this.route('help');
+  this.route('user');
+  this.route('news');
+  this.route('news-details', {path: '/news/:news_id'});
 });
 
 export default Router;

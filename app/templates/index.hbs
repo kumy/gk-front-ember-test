@@ -17,7 +17,7 @@
 
         {{#bs-form class="form-inline" as |form|}}
           {{#form.group validation=firstNameValidation}}
-            <input value={{search}} class="form-control input-lg" type="text" placeholder="Tracking code number">
+            <input value= {{search}} class="form-control input-lg" type="text" placeholder="Tracking code number">
           {{/form.group}}
           {{bs-button defaultText="Search" buttonType="submit" class="input-lg"}}
         {{/bs-form}}
@@ -25,8 +25,21 @@
       </div>
     </div>
   </div>
+</div>
 
-  <!-- <div class="jumbotron">
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 col-sm-12 col-xs-12">
+      <h2>News</h2>
+      {{#each model.news as |a-news|}}
+        {{news-show news=a-news}}
+      {{/each}}
+    </div>
+  </div>
+</div>
+
+<!-- <div class="jumbotron">
     <p class="lead">
       This service is similar to TravelBug(TM) or GeoLutins and aims at tracking things you put to geocache containers...
       {{#link-to 'help'}}
@@ -50,5 +63,4 @@
     </p>
   </div> -->
 
-  {{outlet}}
-</div>
+{{outlet}}

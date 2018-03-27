@@ -5,6 +5,12 @@ import {
 } from 'ember-cp-validations';
 
 const Validations = buildValidations({
+  // date: {
+  //   validators: [
+  //   ]
+  // },
+  news: validator('belongs-to'),
+  author: validator('belongs-to'),
   comment: {
     description: 'Comment',
     validators: [
@@ -20,7 +26,7 @@ const Validations = buildValidations({
 });
 
 export default DS.Model.extend(Validations, {
-  date: DS.attr('string'),
+  createdOn: DS.attr('string'),
   newsId: DS.attr('number'),
   userId: DS.attr('number'),
   comment: DS.attr('string'),
@@ -29,6 +35,7 @@ export default DS.Model.extend(Validations, {
     inverse: 'comments'
   }),
   author: DS.belongsTo('user', {
-    inverse: 'newsComments'
+    inverse: 'newsComments',
+    async: false
   }),
 });

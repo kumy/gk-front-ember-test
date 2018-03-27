@@ -5,6 +5,7 @@ import {
 } from 'ember-cp-validations';
 
 const Validations = buildValidations({
+  newsComments: validator('belongs-to'),
   username: {
     description: 'Comment',
     validators: [
@@ -18,16 +19,16 @@ const Validations = buildValidations({
 });
 
 export default DS.Model.extend(Validations, {
-	username: DS.attr('string'),
+	name: DS.attr('string'),
 	email: DS.attr('string'),
-	joined: DS.attr('date'),
+	joinDate: DS.attr('date'),
 	timestamp: DS.attr('date'),
 	language: DS.attr('string'),
 	country: DS.attr('string'),
 	statpicId: DS.attr('number'),
-	statpicUrl: DS.attr('string'),
-	oldPassword: DS.attr('string'),
-	password: DS.attr('string'),
+	// statpicUrl: DS.attr('string'),
+	// oldPassword: DS.attr('string'),
+	// password: DS.attr('string'),
 	dailyMails: DS.attr('boolean'),
 	ip: DS.attr('string'),
 	latitude: DS.attr('number'),
@@ -37,8 +38,8 @@ export default DS.Model.extend(Validations, {
 	lastMail: DS.attr('date'),
 	lastLogin: DS.attr('date'),
 	secid: DS.attr('string'),
-	message: DS.attr('string'),
-	backgroundUrl: DS.attr('string'),
+	// message: DS.attr('string'),
+	// backgroundUrl: DS.attr('string'),
 	avatar: DS.belongsTo('picture', { inverse: 'user' }),
 	geokretyOwnedCount: DS.attr('number', {default: 0}),
 	geokretyInventoryCount: DS.attr('number', {default: 0}),

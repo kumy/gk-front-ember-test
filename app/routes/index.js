@@ -5,8 +5,10 @@ export default Ember.Route.extend({
   model() {
     return Ember.RSVP.hash({
       news: this.get('store').query('news', {
-        order: '-date',
-        limit: 3
+        sort: '-created-on-date-time',
+        page: {
+          size: 3
+        }
       }),
     });
   },

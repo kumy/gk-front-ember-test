@@ -21,6 +21,7 @@ Router.map(function() {
   this.route('user');
   this.route('news');
   this.route('news-details', {path: '/news/:news_id'});
+  this.route('base');
 });
 
 export default Router;

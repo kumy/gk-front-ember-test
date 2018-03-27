@@ -1,13 +1,13 @@
 <div class="panel panel-default">
   <div class="panel-heading">
-    <h3 class="panel-title">{{link-to-user user=comment.author}}</h3>
+    <h3 class="panel-title">{{link-to-user user=comment.author}}{{comment.author.name}}</h3>
   </div>
   <div class="panel-body">
     {{{comment.comment}}}
   </div>
   <div class="panel-footer">
     <div class="pull-right">
-      {{moment-format comment.date 'MMMM D, YYYY'}}
+      {{moment-format comment.createdOn 'MMMM D, YYYY'}}
     </div>
     <div class="clearfix"></div>
   </div>

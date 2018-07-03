@@ -35,6 +35,7 @@
     "ember-cli-shims": "^1.1.0",
     "ember-cli-sri": "^2.1.0",
     "ember-cli-uglify": "^1.2.0",
+    "ember-cli-update": "^0.21.4",
     "ember-cp-validations": "^3.4.0",
     "ember-data": "~2.13.2",
     "ember-debug-logger": "^1.0.0",

@@ -20,8 +20,6 @@ const Validations = buildValidations({
 
 export default DS.Model.extend(Validations, {
 	date: DS.attr('string'),
-	// czasPostu: DS.attr('string'),
-	date: DS.attr('string'),
 	title: DS.attr('string'),
 	content: DS.attr('string'),
 	username: DS.attr('string'),

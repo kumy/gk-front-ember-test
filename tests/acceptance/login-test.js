@@ -1,38 +1,34 @@
-import {
-	test
-} from 'qunit';
+import {test} from 'qunit';
 import moduleForAcceptance from 'geokrety-front/tests/helpers/module-for-acceptance';
-import {
-	authenticateSession,
-	invalidateSession
-} from 'geokrety-front/tests/helpers/ember-simple-auth';
+import {authenticateSession, invalidateSession} from 'geokrety-front/tests/helpers/ember-simple-auth';
+import {visit, currentURL, andThen} from '@ember/test-helpers';
 
 moduleForAcceptance('Acceptance | login');
 
 test('visiting /login', function(assert) {
-	visit('/login');
+  visit('/login');
 
-	andThen(function() {
-		assert.equal(currentURL(), '/login');
-	});
+  andThen(function() {
+    assert.equal(currentURL(), '/login');
+  });
 });
 
 test('visiting - not logged', function(assert) {
-	invalidateSession(this.application);
-	visit('/login');
+  invalidateSession(this.application);
+  visit('/login');
 
-	andThen(function() {
-		assert.equal(currentURL(), '/login');
-	});
+  andThen(function() {
+    assert.equal(currentURL(), '/login');
+  });
 });
 
 test('visiting - logged in', function(assert) {
-	// let application = startApp();
-	authenticateSession(this.application);
-	visit('/login');
-	andThen(function() {
-		assert.equal(currentURL(), '/');
-	});
+  // let application = startApp();
+  authenticateSession(this.application);
+  visit('/login');
+  andThen(function() {
+    assert.equal(currentURL(), '/');
+  });
 });
 
 // test('User authentication', function(assert) {

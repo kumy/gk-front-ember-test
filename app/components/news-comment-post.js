@@ -1,20 +1,19 @@
-import Ember from 'ember';
+import Component from '@ember/component';
+import {inject} from '@ember/service';
 
-export default Ember.Component.extend({
+export default Component.extend({
 
-  store: Ember.inject.service(),
+  store: inject.service(),
   newsComment: null,
 
   init() {
     this._super(...arguments);
     let newsComment = this.get('store').createRecord('news-comment', {});
     this.set('newsComment', newsComment);
-    console.log("NewsComments init().");
   },
 
   actions: {
     submitAction() {
-      console.log("New NewsComments submitted.")
       let newsComment = this.get('newsComment');
 
       let news = this.get('store').peekRecord('news', 177);
@@ -22,7 +21,6 @@ export default Ember.Component.extend({
       newsComment.save();
     },
     invalidForm() {
-      console.log("NewsComments submitted, but invalid.")
     }
   }
 });

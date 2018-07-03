@@ -6,6 +6,7 @@ import {
 	authenticateSession,
 	invalidateSession
 } from 'geokrety-front/tests/helpers/ember-simple-auth';
+import {visit, currentURL, andThen} from '@ember/test-helpers';
 
 moduleForAcceptance('Acceptance | logout', {
 	needs: ['service:session']

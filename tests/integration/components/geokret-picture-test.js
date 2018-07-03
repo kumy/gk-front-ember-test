@@ -3,13 +3,13 @@ import {
 	test
 } from 'ember-qunit';
 import hbs from 'htmlbars-inline-precompile';
-import Ember from 'ember';
+import EmberObject from '@ember/object';
 
 moduleForComponent('geokret-picture', 'Integration | Component | geokret picture', {
 	integration: true
 });
 
-const Picture = Ember.Object.extend({
+const Picture = EmberObject.extend({
 	id: 4,
 	type: 0,
 	itemId: 12,

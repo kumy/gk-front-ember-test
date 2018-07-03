@@ -2,10 +2,10 @@
   {{#link-to 'user'}}{{user.username}}{{/link-to}}
 {{else}}
   <span class="user-anonymous">
-    {{#if not yield}}
-      Anonymous
-    {{else}}
+    {{#if yield}}
       {{yield}}
+    {{else}}
+      Anonymous
     {{/if}}
     </span>
 {{/if}}

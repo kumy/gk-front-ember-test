@@ -1,12 +1,13 @@
-import Ember from 'ember';
+import Route from '@ember/routing/route';
 import AuthenticatedRouteMixin from 'ember-simple-auth/mixins/authenticated-route-mixin';
+import { getOwner } from '@ember/application';
 
-export default Ember.Route.extend(AuthenticatedRouteMixin, {
+export default Route.extend(AuthenticatedRouteMixin, {
 
 	beforeModel(transition) {
 		this.debug('beforeModel: Coucou');
 		// this._super(...arguments);
-		const owner = Ember.getOwner(this);
+		const owner = getOwner(this);
 		const routeName = owner.lookup('router:main').currentRouteName;
 		this.debug('beforeModel: routeName: ' + routeName);
 

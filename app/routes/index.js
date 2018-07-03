@@ -1,9 +1,10 @@
-import Ember from 'ember';
+import Route from '@ember/routing/route';
+import { hash } from 'rsvp';
 
-export default Ember.Route.extend({
+export default Route.extend({
 
   model() {
-    return Ember.RSVP.hash({
+    return hash({
       news: this.get('store').query('news', {
         sort: '-created-on-date-time',
         page: {

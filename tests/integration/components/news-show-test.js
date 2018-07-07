@@ -1,25 +1,34 @@
-import { moduleForComponent, test } from 'ember-qunit';
+import {module, test} from 'qunit';
+import {setupRenderingTest} from 'ember-qunit';
+import {render} from '@ember/test-helpers';
 import hbs from 'htmlbars-inline-precompile';
+import EmberObject from '@ember/object';
 
-moduleForComponent('news-show', 'Integration | Component | news show', {
-  integration: true
-});
+module('Integration | Component | news show', function(hooks) {
+  setupRenderingTest(hooks);
 
-test('it renders', function(assert) {
+  const News = EmberObject.extend({
+    id: 4,
+    title: "A title",
+    content: "A news content",
+    username: "GK Team",
+    commentsCount: "3",
+    createdOnDateTime: "2018-04-17T20:30:02",
+    lastCommentDateTime: "2018-04-18T08:12:55"
+  });
 
-  // Set any properties with this.set('myProperty', 'value');
-  // Handle any actions with this.on('myAction', function(val) { ... });
+  test('it renders', async function(assert) {
+    // Set any properties with this.set('myProperty', 'value');
+    // Handle any actions with this.set('myAction', function(val) { ... });
+    let news = News.create();
+    this.set('news', news);
 
-  this.render(hbs`{{news-show}}`);
+    await render(hbs `{{news-show news=news}}`);
 
-  assert.equal(this.$().text().trim(), '');
-
-  // Template block usage:
-  this.render(hbs`
-    {{#news-show}}
-      template block text
-    {{/news-show}}
-  `);
-
-  assert.equal(this.$().text().trim(), 'template block text');
+    assert.equal(this.element.querySelector('h3.panel-title').textContent.trim(), 'A title');
+    assert.equal(this.element.querySelector('div.panel-body').textContent.trim(), 'A news content');
+    assert.equal(this.element.querySelector('span.news-comments-count').textContent.trim(), 'Comments (3)');
+    assert.equal(this.element.querySelector('span.news-date').textContent.trim(), 'April 17, 2018');
+    assert.equal(this.element.querySelector('span.news-author').textContent.trim(), 'GK Team');
+  });
 });

@@ -8,18 +8,20 @@
         {{#bs-form class="form-signin" onSubmit=(action "authenticate") as |form|}}
           {{form.element
             controlType="text"
-            id=username
+            property=username
             placeholder="Username"
             value=username
+            required=true
             onChange=(action (mut value))
-            data-test-username-field=username
+            data-test-username-field="username"
           }} {{form.element
             controlType="password"
-            id=password
+            property=password
             placeholder="Password"
             value=password
+            required=true
             onChange=(action (mut value))
-            data-test-password-field=password
+            data-test-password-field="password"
           }} {{bs-button
             defaultText="Submit"
             type="primary"

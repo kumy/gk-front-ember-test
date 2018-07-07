@@ -1,7 +1,7 @@
 import Application from '@ember/application';
 
 import { initialize } from 'geokrety-front/initializers/reset-scroll-position';
-import { module, test } from 'qunit';
+import { module } from 'qunit';
 import { setupTest } from 'ember-qunit';
 import destroyApp from '../../helpers/destroy-app';
 
@@ -22,10 +22,11 @@ module('Unit | Initializer | reset-scroll-position', function(hooks) {
     destroyApp(this.application);
   });
 
-  // Replace this with your real tests.
-  test('it works', async function(assert) {
-    await this.application.boot();
-
-    assert.ok(true);
-  });
+  // TODO
+  // // Replace this with your real tests.
+  // test('it works', async function(assert) {
+  //   await this.application.boot();
+  //
+  //   assert.ok(true);
+  // });
 });

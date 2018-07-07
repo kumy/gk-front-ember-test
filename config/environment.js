@@ -23,8 +23,15 @@ module.exports = function(environment) {
     },
 
     fastboot: {
-      hostWhitelist: ['192.168.125.64:4200', /^localhost:\d+$/]
+      hostWhitelist: ['192.168.125.64:4200', 'front.geokrety.house.kumy.net', /^localhost:\d+$/, /^front.geokrety.house.kumy.net:\d+$/]
     }
+  };
+
+  ENV['ember-simple-auth-token'] = {
+    serverTokenEndpoint: 'https://api.geokrety.house.kumy.net/auth/session',
+    tokenPropertyName: 'access_token',
+    authorizationHeaderName: 'Authorization', // Header name added to each API request
+    authorizationPrefix: 'JWT ', // Prefix added to each API request
   };
 
   if (environment === 'development') {

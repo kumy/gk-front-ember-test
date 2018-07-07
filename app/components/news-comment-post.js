@@ -1,9 +1,9 @@
 import Component from '@ember/component';
-import {inject} from '@ember/service';
+import { inject as service } from '@ember/service';
 
 export default Component.extend({
 
-  store: inject.service(),
+  store: service(),
   newsComment: null,
 
   init() {
@@ -20,7 +20,6 @@ export default Component.extend({
       newsComment.set('news', news);
       newsComment.save();
     },
-    invalidForm() {
-    }
+    invalidForm() {}
   }
 });

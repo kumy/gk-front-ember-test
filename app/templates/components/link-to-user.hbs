@@ -1,11 +1,11 @@
-{{#if user.username}}
-  {{#link-to 'user'}}{{user.username}}{{/link-to}}
+{{#if user}}
+  {{#link-to 'user' user.id}}{{user.name}}{{/link-to}}
 {{else}}
   <span class="user-anonymous">
-    {{#if yield}}
+    {{#if (has-block)}}
       {{yield}}
     {{else}}
-      Anonymous
+      Anonymous 
     {{/if}}
-    </span>
+  </span>
 {{/if}}

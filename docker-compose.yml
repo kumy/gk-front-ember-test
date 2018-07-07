@@ -1,0 +1,35 @@
+version: '2'
+services:
+
+  geokrety-front:
+    container_name: geokrety-front
+    image: geokrety-front:latest
+    build: .
+    restart: always
+    #ports:
+    # - "4200:4200"
+    volumes:
+      - /home/kumy/GIT/geokrety-front-test:/srv/geokrety-front
+      #- /home/kumy/GIT/geokrety-front-test/app:/srv/geokrety-front/app
+      #- /home/kumy/GIT/geokrety-front-test/config:/srv/geokrety-front/config
+    labels:
+      - "traefik.enable=true"
+      - "traefik.front.frontend.rule=Host:front.geokrety.house.kumy.net"
+      - "traefik.front.docker.network=kumy_default"
+      - "traefik.front.port=4200"
+
+      #- "traefik.livereload.frontend.rule=Host:front.geokrety.house.kumy.net;Path:/livereload"
+      #- "traefik.livereload.docker.network=kumy_default"
+      #- "traefik.livereload.port=7020"
+    networks:
+      - back
+    environment:
+      - NODE_TLS_REJECT_UNAUTHORIZED=0
+    #command: sleep 1000000
+    #command: 
+
+
+networks:
+  back:
+    external:
+      name: kumy_default

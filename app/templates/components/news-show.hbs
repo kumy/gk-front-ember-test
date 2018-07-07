@@ -9,7 +9,7 @@
     <div class="pull-right">
       {{#link-to "news-details" news.id}}Comments ({{news.commentsCount}}){{/link-to}}
       -
-      {{moment-format news.date 'MMMM D, YYYY'}}
+      {{moment-format news.createdOnDateTime 'MMMM D, YYYY'}}
       -
       {{#link-to-user user=news.author}}{{news.username}}{{/link-to-user}}
     </div>

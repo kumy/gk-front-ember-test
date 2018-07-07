@@ -18,7 +18,7 @@ Router.map(function() {
   this.route('downloads');
   this.route('hall-of-fame');
   this.route('help');
-  this.route('user');
+  this.route('user', {path: '/user/:user_id'});
   this.route('news');
   this.route('news-details', {path: '/news/:news_id'});
   this.route('base');

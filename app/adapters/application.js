@@ -1,9 +1,9 @@
 import DS from 'ember-data';
-import DataAdapterMixin from 'ember-simple-auth/mixins/data-adapter-mixin';
+import TokenAuthorizerMixin from 'ember-simple-auth-token/mixins/token-authorizer';
 
-export default DS.JSONAPIAdapter.extend(DataAdapterMixin, {
-	host: 'http://192.168.125.64:5001',
-  authorizer: 'authorizer:oauth2',
+export default DS.JSONAPIAdapter.extend(TokenAuthorizerMixin, {
+	host: 'https://api.geokrety.house.kumy.net',
+  // authorizer: 'authorizer:oauth2',
   namespace: 'v1',
   coalesceFindRequests: true
 });

@@ -2,9 +2,11 @@ import {module, test} from 'qunit';
 import {visit, currentURL, fillIn, click} from '@ember/test-helpers';
 import {currentSession, invalidateSession} from 'ember-simple-auth/test-support';
 import {setupApplicationTest} from 'ember-qunit';
+import setupMirage from 'ember-cli-mirage/test-support/setup-mirage';
 
 module('Acceptance | login', async function(hooks) {
   setupApplicationTest(hooks);
+  setupMirage(hooks);
 
   test('visiting /login', async function(assert) {
     await visit('/login');
@@ -33,7 +35,7 @@ module('Acceptance | login', async function(hooks) {
     await click('[data-test-submit-button]');
     await visit('/');
 
-    // assert.ok(currentSession().isAuthenticated);
+    assert.ok(currentSession().isAuthenticated);
     // assert.equal(currentURL(), '/');
   });
 

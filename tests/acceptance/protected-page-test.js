@@ -2,9 +2,11 @@ import {module, test} from 'qunit';
 import {visit, currentURL, fillIn, click} from '@ember/test-helpers';
 import {authenticateSession, invalidateSession} from 'ember-simple-auth/test-support';
 import {setupApplicationTest} from 'ember-qunit';
+import setupMirage from 'ember-cli-mirage/test-support/setup-mirage';
 
 module('Acceptance | protected page', function(hooks) {
   setupApplicationTest(hooks);
+  setupMirage(hooks);
 
   // hooks.beforeEach(function() {
   //    this.owner.lookup('service:session').setProperties({

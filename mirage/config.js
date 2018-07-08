@@ -1,8 +1,8 @@
 export default function() {
 
   this.urlPrefix = 'https://api.geokrety.house.kumy.net';
-  this.namespace = '/auth';
 
+  this.namespace = '/auth';
   this.post('/session', function() {
     return {"access_token": "fake"};
   });

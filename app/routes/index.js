@@ -9,7 +9,8 @@ export default Route.extend({
         include: 'author',
         sort: '-created-on-date-time',
         page: {
-          size: 3
+          size: 3,
+          number: 1
         }
       }),
     });

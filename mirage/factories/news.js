@@ -1,4 +1,4 @@
-import { Factory, faker, association, trait } from 'ember-cli-mirage';
+import {Factory, faker, association, trait} from 'ember-cli-mirage';
 
 export default Factory.extend({
   title() {
@@ -26,5 +26,9 @@ export default Factory.extend({
     username() {
       return faker.internet.userName();
     }
-  })
+  }),
+
+  afterCreate(news, server) {
+    server.createList('newsComment', news.commentsCount, { news });
+  }
 });

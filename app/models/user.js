@@ -1,8 +1,5 @@
 import DS from 'ember-data';
-import {
-  validator,
-  buildValidations
-} from 'ember-cp-validations';
+import {validator, buildValidations} from 'ember-cp-validations';
 
 const Validations = buildValidations({
   newsComments: validator('belongs-to'),
@@ -15,38 +12,61 @@ const Validations = buildValidations({
         max: 125
       })
     ]
-  },
+  }
 });
 
 export default DS.Model.extend(Validations, {
-	name: DS.attr('string'),
-	email: DS.attr('string'),
-	joinDate: DS.attr('date'),
-	timestamp: DS.attr('date'),
-	language: DS.attr('string'),
-	country: DS.attr('string'),
-	statpicId: DS.attr('number'),
-	// statpicUrl: DS.attr('string'),
-	// oldPassword: DS.attr('string'),
-	// password: DS.attr('string'),
-	dailyMails: DS.attr('boolean'),
-	ip: DS.attr('string'),
-	latitude: DS.attr('number'),
-	longitude: DS.attr('number'),
-	observationRadius: DS.attr('number'),
-	hour: DS.attr('number'),
-	lastMail: DS.attr('date'),
-	lastLogin: DS.attr('date'),
-	secid: DS.attr('string'),
-	// message: DS.attr('string'),
-	// backgroundUrl: DS.attr('string'),
-	avatar: DS.belongsTo('picture', { inverse: 'user' }),
-	geokretyOwnedCount: DS.attr('number', {default: 0}),
-	geokretyInventoryCount: DS.attr('number', {default: 0}),
-	geokretyOwned: DS.hasMany('geokret', {inverse: 'owner'}),
-	geokretyInventory: DS.hasMany('geokret', {inverse: 'holder'}),
-	picturesOwned: DS.hasMany('picture', {inverse: 'owner'}),
-	moves: DS.hasMany('move', {inverse: 'user'}),
-	news: DS.hasMany('news', {inverse: 'author'}),
-	newsComments: DS.hasMany('newsComments', {inverse: 'author'}),
+  name: DS.attr('string'),
+  email: DS.attr('string'),
+  language: DS.attr('string'),
+  country: DS.attr('string'),
+  latitude: DS.attr('number'),
+  longitude: DS.attr('number'),
+  dailyMails: DS.attr('boolean'),
+  observationRadius: DS.attr('number'),
+  hour: DS.attr('number'),
+  statpicUrl: DS.attr('string'),
+  avatarUrl: DS.attr('string'),
+  secid: DS.attr('string'),
+  joinedDateTime: DS.attr('date'),
+  lastUpdateDateTime: DS.attr('date'),
+  lastMailDateTime: DS.attr('date'),
+  lastLoginDateTime: DS.attr('date'),
+
+  news: DS.hasMany('news', {
+    inverse: 'author',
+    async: true
+  }),
+  newsComments: DS.hasMany('newsComments', {
+    inverse: 'author',
+    async: true
+  }),
+  statpicTemplate: DS.belongsTo('statpicTemplate', {
+    inverse: 'users',
+    async: true
+  }),
+  avatar: DS.belongsTo('picture', {
+    inverse: 'user',
+    async: true
+  }),
+  moves: DS.hasMany('move', {
+    inverse: 'author',
+    async: true
+  }),
+  movesComments: DS.hasMany('newsComments', {
+    inverse: 'author',
+    async: true
+  }),
+
+  // geokretyOwnedCount: DS.attr('number', {default: 0}),
+  // geokretyInventoryCount: DS.attr('number', {default: 0}),
+  geokretyOwned: DS.hasMany('geokret', {
+    inverse: 'owner',
+    async: true
+  }),
+  geokretyInventory: DS.hasMany('geokret', {
+    inverse: 'holder',
+    async: true
+  }),
+  // picturesOwned: DS.hasMany('picture', {inverse: 'owner'}),
 });

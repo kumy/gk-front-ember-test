@@ -5,9 +5,12 @@
 
   {{news-show news=model}}
   <hr>
+  {{#each model.newsComments as |newscomment|}}
+    {{news-comment-show comment=newscomment}}
+  {{/each}}
+  <hr>
+  {{news-comment-post}}
 
-    {{news-comment-post}}
-    
   {{#if session.isAuthenticated}}
     {{news-comment-post}}
   {{else}}

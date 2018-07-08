@@ -22,11 +22,12 @@ export default DS.Model.extend(Validations, {
   commentsCount: DS.attr('number'),
   createdOnDateTime: DS.attr('string'),
   lastCommentDateTime: DS.attr('string'),
+
   author: DS.belongsTo('user', {
     inverse: 'news',
     async: true
   }),
-  comments: DS.hasMany('newsComment', {
+  newsComments: DS.hasMany('newsComment', {
     inverse: 'news',
     async: true
   })

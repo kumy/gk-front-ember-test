@@ -2,15 +2,14 @@ import DS from 'ember-data';
 
 export default DS.Model.extend({
 	type: DS.attr('number'),
-	itemId: DS.attr('number'),
-	geokretId: DS.attr('number'),
-	ownerId: DS.attr('number'),
+  comment: DS.attr('string'),
 	filename: DS.attr('string'),
-	pictureUrl: DS.attr('string'),
-	thumbnailUrl: DS.attr('string'),
-	description: DS.attr('string'),
-	timestamp: DS.attr('string'),
+	fileUrl: DS.attr('string'),
+  createdOnDateTime: DS.attr('date'),
+  updatedOnDateTime: DS.attr('date'),
+
 	owner: DS.belongsTo('user', { inverse: 'picturesOwned' }),
+  user: DS.belongsTo('user', { inverse: 'avatar' }),
 	geokret: DS.belongsTo('geokret', { inverse: 'avatar' }),
-	user: DS.belongsTo('user', { inverse: 'avatar' }),
+	move: DS.belongsTo('move', { inverse: 'pictures' }),
 });

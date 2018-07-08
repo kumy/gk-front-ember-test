@@ -1,8 +1,5 @@
 import DS from 'ember-data';
-import {
-  validator,
-  buildValidations
-} from 'ember-cp-validations';
+import {validator, buildValidations} from 'ember-cp-validations';
 
 const Validations = buildValidations({
   // date: {
@@ -20,22 +17,19 @@ const Validations = buildValidations({
         max: 1000
       })
     ]
-  },
-}, {
-  debounce: 500
-});
+  }
+}, {debounce: 500});
 
 export default DS.Model.extend(Validations, {
-  createdOnDateTime: DS.attr('string'),
-  newsId: DS.attr('number'),
-  userId: DS.attr('number'),
   comment: DS.attr('string'),
-  icon: DS.attr('string'),
-  news: DS.belongsTo('news', {
-    inverse: 'comments'
-  }),
+  createdOnDateTime: DS.attr('string'),
+
   author: DS.belongsTo('user', {
     inverse: 'newsComments',
-    async: false
+    async: true
   }),
+  news: DS.belongsTo('news', {
+    inverse: 'newsComments',
+    async: true
+  })
 });

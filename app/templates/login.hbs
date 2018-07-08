@@ -6,41 +6,39 @@
       <div class="account-wall">
         <img class="profile-img" src="https://lh5.googleusercontent.com/-b0-k99FZlyE/AAAAAAAAAAI/AAAAAAAAAAA/eu7opA4byxI/photo.jpg?sz=120" alt="">
         {{#bs-form class="form-signin" onSubmit=(action "authenticate") as |form|}}
-
           {{form.element
-    controlType="text"
-    id=username
-    placeholder="Username"
-    value=username
-    onChange=(action (mut value))
-    data-test-username-field=username
-  }} {{form.element
-    controlType="password"
-    id=password
-    placeholder="Password"
-    value=password
-    onChange=(action (mut value))
-    data-test-password-field=password
-  }}
-
-{{bs-button
-defaultText="Submit"
-type="primary"
-class="btn btn-lg btn-block"
-buttonType="submit"
-data-test-submit-button="submit"
-}}
-
+            controlType="text"
+            property=username
+            placeholder="Username"
+            value=username
+            required=true
+            onChange=(action (mut value))
+            data-test-username-field="username"
+          }} {{form.element
+            controlType="password"
+            property=password
+            placeholder="Password"
+            value=password
+            required=true
+            onChange=(action (mut value))
+            data-test-password-field="password"
+          }} {{bs-button
+            defaultText="Submit"
+            type="primary"
+            class="btn btn-lg btn-block"
+            buttonType="submit"
+            data-test-submit-button="submit"
+          }}
 
           <div class="pull-left">
-          {{form.element
-    controlType="checkbox"
-    label="Remember me"
-    value=rememberMe
-    data-test-remember-me-checkbox=rememberMe
-  }}
-</div>
-                <a href="#" class="pull-right need-help">Need help? </a><span class="clearfix"></span>
+            {{form.element
+              controlType="checkbox"
+              label="Remember me"
+              value=rememberMe
+              data-test-remember-me-checkbox=rememberMe
+            }}
+          </div>
+          <a href="#" class="pull-right need-help">Need help? </a><span class="clearfix"></span>
         {{/bs-form}}
 
         {{#if errorMessage}}

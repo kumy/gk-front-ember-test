@@ -1,38 +1,38 @@
-import {
-	test
-} from 'qunit';
-import moduleForAcceptance from 'geokrety-front/tests/helpers/module-for-acceptance';
-import {
-	authenticateSession,
-	invalidateSession
-} from 'geokrety-front/tests/helpers/ember-simple-auth';
+import {module, test} from 'qunit';
+import {visit, currentURL} from '@ember/test-helpers';
+import {currentSession, authenticateSession, invalidateSession} from 'ember-simple-auth/test-support';
+import {setupApplicationTest} from 'ember-qunit';
+import setupMirage from 'ember-cli-mirage/test-support/setup-mirage';
 
-moduleForAcceptance('Acceptance | logout', {
-	needs: ['service:session']
-});
+module('Acceptance | logout', async function(hooks) {
+  setupApplicationTest(hooks);
+  setupMirage(hooks);
 
-test('visiting /logout', function(assert) {
-	visit('/logout');
+  test('visiting /logout', async function(assert) {
+    await authenticateSession({userId: 1});
+    assert.ok(currentSession().isAuthenticated);
+    await visit('/');
 
-	andThen(function() {
-		assert.equal(currentURL(), '/');
-	});
-});
+    await visit('/logout');
+    assert.notOk(currentSession().isAuthenticated);
+    assert.equal(currentURL(), '/logout');
+  });
 
-test('visiting - not logged', function(assert) {
-	invalidateSession(this.application);
-	visit('/logout');
+  test('visiting - not logged', async function(assert) {
+    await invalidateSession();
+    assert.ok('[data-test-logout-button]');
+    await visit('/logout');
 
-	andThen(function() {
-		assert.equal(currentURL(), '/');
-	});
-});
+    assert.notOk(currentSession().isAuthenticated);
+    assert.equal(currentURL(), '/');
+  });
 
-test('visiting - logged in', function(assert) {
-	authenticateSession(this.application);
-	visit('/logout');
+  test('visiting - logged in', async function(assert) {
+    await authenticateSession({userId: 1});
+    await visit('/logout');
 
-	andThen(function() {
-		assert.equal(currentURL(), '/logout');
-	});
+    assert.notOk(currentSession().isAuthenticated);
+    assert.equal(currentURL(), '/logout');
+  });
+
 });

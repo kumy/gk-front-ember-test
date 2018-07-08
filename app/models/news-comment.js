@@ -26,7 +26,7 @@ const Validations = buildValidations({
 });
 
 export default DS.Model.extend(Validations, {
-  createdOn: DS.attr('string'),
+  createdOnDateTime: DS.attr('string'),
   newsId: DS.attr('number'),
   userId: DS.attr('number'),
   comment: DS.attr('string'),

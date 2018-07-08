@@ -1,7 +1,7 @@
-import Ember from 'ember';
+import EmberRouter from '@ember/routing/router';
 import config from './config/environment';
 
-const Router = Ember.Router.extend({
+const Router = EmberRouter.extend({
   location: config.locationType,
   rootURL: config.rootURL
 });
@@ -18,10 +18,12 @@ Router.map(function() {
   this.route('downloads');
   this.route('hall-of-fame');
   this.route('help');
-  this.route('user');
+  this.route('users');
+  this.route('user', {path: '/users/:user_id'});
   this.route('news');
   this.route('news-details', {path: '/news/:news_id'});
   this.route('base');
+  this.route('tttt');
 });
 
 export default Router;

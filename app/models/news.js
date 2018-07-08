@@ -1,8 +1,5 @@
 import DS from 'ember-data';
-import {
-  validator,
-  buildValidations
-} from 'ember-cp-validations';
+import {validator, buildValidations} from 'ember-cp-validations';
 
 const Validations = buildValidations({
   comments: validator('belongs-to'),
@@ -15,25 +12,22 @@ const Validations = buildValidations({
         max: 125
       })
     ]
-  },
+  }
 });
 
 export default DS.Model.extend(Validations, {
-	date: DS.attr('string'),
-	// czasPostu: DS.attr('string'),
-	date: DS.attr('string'),
-	title: DS.attr('string'),
-	content: DS.attr('string'),
-	username: DS.attr('string'),
-	userId: DS.attr('number'),
-	commentsCount: DS.attr('number'),
-	lastComment: DS.attr('string'),
-	author: DS.belongsTo('user', {
+  title: DS.attr('string'),
+  content: DS.attr('string'),
+  username: DS.attr('string'),
+  commentsCount: DS.attr('number'),
+  createdOnDateTime: DS.attr('string'),
+  lastCommentDateTime: DS.attr('string'),
+  author: DS.belongsTo('user', {
     inverse: 'news',
-    async: false
+    async: true
   }),
-	comments: DS.hasMany('newsComment', {
+  comments: DS.hasMany('newsComment', {
     inverse: 'news',
-    async: false
-  }),
+    async: true
+  })
 });

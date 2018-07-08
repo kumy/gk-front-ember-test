@@ -1,61 +1,42 @@
-import {
-	test
-} from 'qunit';
-import moduleForAcceptance from 'geokrety-front/tests/helpers/module-for-acceptance';
-import {
-	authenticateSession,
-	invalidateSession
-} from 'geokrety-front/tests/helpers/ember-simple-auth';
+import {module, test} from 'qunit';
+import {visit, currentURL, fillIn, click} from '@ember/test-helpers';
+import {currentSession, invalidateSession} from 'ember-simple-auth/test-support';
+import {setupApplicationTest} from 'ember-qunit';
+import setupMirage from 'ember-cli-mirage/test-support/setup-mirage';
 
-moduleForAcceptance('Acceptance | login');
+module('Acceptance | login', async function(hooks) {
+  setupApplicationTest(hooks);
+  setupMirage(hooks);
 
-test('visiting /login', function(assert) {
-	visit('/login');
+  test('visiting /login', async function(assert) {
+    await visit('/login');
 
-	andThen(function() {
-		assert.equal(currentURL(), '/login');
-	});
+    assert.equal(currentURL(), '/login');
+  });
+
+  test('visiting - not logged', async function(assert) {
+    await invalidateSession();
+    await visit('/login');
+
+    assert.equal(currentURL(), '/login');
+  });
+
+  test('visiting - logged in', async function(assert) {
+    await invalidateSession();
+    await visit('/login');
+
+    assert.ok('[data-test-home-link]');
+    assert.ok('[data-test-username-field] > input');
+    assert.ok('[data-test-password-field] > input');
+    assert.ok('[data-test-submit-button]');
+
+    await fillIn('[data-test-username-field] > input', 'kumy');
+    await fillIn('[data-test-password-field] > input', 'sdfsdf');
+    await click('[data-test-submit-button]');
+    await visit('/');
+
+    assert.ok(currentSession().isAuthenticated);
+    // assert.equal(currentURL(), '/');
+  });
+
 });
-
-test('visiting - not logged', function(assert) {
-	invalidateSession(this.application);
-	visit('/login');
-
-	andThen(function() {
-		assert.equal(currentURL(), '/login');
-	});
-});
-
-test('visiting - logged in', function(assert) {
-	// let application = startApp();
-	authenticateSession(this.application);
-	visit('/login');
-	andThen(function() {
-		assert.equal(currentURL(), '/');
-	});
-});
-
-// test('User authentication', function(assert) {
-// 	visit('/login');
-// 	fillIn('[data-test-username-field]', 'kumy');
-// 	fillIn('[data-test-password-field]', 'sdfsdf');
-// 	click('[data-test-submit-button]');
-//
-// 	andThen(function() {
-// 		assert.equal(currentURL(), '/login');
-// 	});
-// });
-//
-// test('User authentication return to original page', function(assert) {
-// 	visit('/about');
-// 	click('[data-test-login-button]');
-// 	andThen(function() {
-// 		assert.equal(currentURL(), '/login');
-// 		fillIn('[data-test-username-field]', 'kumy');
-// 		fillIn('[data-test-password-field]', 'sdfsdf');
-// 		click('[data-test-submit-button]');
-// 		andThen(function() {
-// 			assert.equal(currentURL(), '/');
-// 		});
-// 	});
-// });

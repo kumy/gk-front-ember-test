@@ -7,11 +7,11 @@
   </div>
   <div class="panel-footer">
     <div class="pull-right">
-      {{#link-to "news-details" news.id}}Comments ({{news.commentsCount}}){{/link-to}}
+      <span class="news-comments-count">{{#link-to "news-details" news.id}}Comments ({{news.commentsCount}}){{/link-to}}</span>
       -
-      {{moment-format news.date 'MMMM D, YYYY'}}
+      <span class="news-date">{{moment-format news.createdOnDateTime 'MMMM D, YYYY'}}</span>
       -
-      {{#link-to-user user=news.author}}{{news.username}}{{/link-to-user}}
+      <span class="news-author">{{#link-to-user user=news.author}}{{news.username}}{{/link-to-user}}</span>
     </div>
     <div class="clearfix"></div>
   </div>

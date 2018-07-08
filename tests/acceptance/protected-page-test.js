@@ -1,52 +1,50 @@
-import {
-	test
-} from 'qunit';
-import moduleForAcceptance from 'geokrety-front/tests/helpers/module-for-acceptance';
-import {
-	authenticateSession,
-	invalidateSession
-} from 'geokrety-front/tests/helpers/ember-simple-auth';
+import {module, test} from 'qunit';
+import {visit, currentURL, fillIn, click} from '@ember/test-helpers';
+import {authenticateSession, invalidateSession} from 'ember-simple-auth/test-support';
+import {setupApplicationTest} from 'ember-qunit';
+import setupMirage from 'ember-cli-mirage/test-support/setup-mirage';
 
-moduleForAcceptance('Acceptance | protected page');
+module('Acceptance | protected page', function(hooks) {
+  setupApplicationTest(hooks);
+  setupMirage(hooks);
 
-test('visiting authenticated only - not logged', function(assert) {
-	invalidateSession(this.application);
-	visit('/contact');
+  // hooks.beforeEach(function() {
+  //    this.owner.lookup('service:session').setProperties({
+  //      user: { id: 2 }
+  //    });
+  // });
 
-	andThen(function() {
-		assert.notEqual(currentURL(), '/contact');
-		assert.equal(currentURL(), '/login');
-	});
-});
+  test('visiting authenticated only page - not logged', async function(assert) {
+    await invalidateSession();
+    await visit('/contact');
 
-test('visiting authenticated only - logged in', function(assert) {
-	// let application = startApp();
-	authenticateSession(this.application);
-	visit('/contact');
-	andThen(function() {
-		assert.equal(currentURL(), '/contact');
-	});
-});
+    assert.notEqual(currentURL(), '/contact');
+    assert.equal(currentURL(), '/login');
+  });
 
-test('visiting unauthenticated only - not logged', function(assert) {
-	visit('/about');
+  test('visiting authenticated only page - logged in', async function(assert) {
+    await authenticateSession({userId: 1});
+    await visit('/contact');
 
-	andThen(function() {
-		assert.equal(currentURL(), '/about');
-	});
-});
+    assert.notEqual(currentURL(), '/login');
+    assert.equal(currentURL(), '/contact');
+  });
 
-test('visiting unauthenticated only - logged in', function(assert) {
-	visit('/login');
-	fillIn('[data-test-username-field]', 'kumy');
-	fillIn('[data-test-password-field]', 'sdfsdf');
-	click('[data-test-submit-button]');
+  test('visiting unauthenticated only page - logged in', async function(assert) {
+    await invalidateSession(this.application);
+    await visit('/login');
 
-	andThen(function() {
-		click('[data-test-home-link]');
-		andThen(function() {
-			assert.equal(currentURL(), '/');
-			click('[data-test-about-link]');
-		});
-	});
+    assert.ok('[data-test-home-link]');
+    assert.ok('[data-test-username-field] > input');
+    assert.ok('[data-test-password-field] > input');
+    assert.ok('[data-test-submit-button]');
+
+    await fillIn('[data-test-username-field] > input', 'kumy');
+    await fillIn('[data-test-password-field] > input', 'sdfsdf');
+    await click('[data-test-submit-button]');
+
+    assert.ok('[data-test-home-link]');
+    await click('[data-test-home-link]');
+    assert.equal(currentURL(), '/');
+  });
 });

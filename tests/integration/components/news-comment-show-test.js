@@ -3,9 +3,16 @@ import {setupRenderingTest} from 'ember-qunit';
 import {render} from '@ember/test-helpers';
 import hbs from 'htmlbars-inline-precompile';
 import EmberObject from '@ember/object';
+// import { startMirage } from 'geokrety-front/initializers/ember-cli-mirage';
 
 module('Integration | Component | news comment show', function(hooks) {
   setupRenderingTest(hooks);
+  // beforeEach() {
+  //   this.server = startMirage();
+  // };
+  // afterEach() {
+  //   this.server.shutdown();
+  // };
 
   const NewsComment = EmberObject.extend({
     id: 5,
@@ -24,8 +31,8 @@ module('Integration | Component | news comment show', function(hooks) {
 
     await render(hbs `{{news-comment-show comment=comment}}`);
 
-    assert.equal(this.element.querySelector('h3.panel-title').textContent.trim(), 'Anonymous');
-    assert.equal(this.element.querySelector('div.panel-body').textContent.trim(), 'Congrats');
-    assert.equal(this.element.querySelector('span.news-comment-date').textContent.trim(), 'April 17, 2018');
+    assert.equal(this.element.querySelector('[data-test-news-comment-author]').textContent.trim(), 'Anonymous');
+    assert.equal(this.element.querySelector('[data-test-news-comment-content]').textContent.trim(), 'Congrats');
+    assert.equal(this.element.querySelector('[data-test-news-comment-creation-date-time]').textContent.trim(), 'April 17, 2018');
   });
 });

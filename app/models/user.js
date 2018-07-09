@@ -53,7 +53,7 @@ export default DS.Model.extend(Validations, {
     inverse: 'author',
     async: true
   }),
-  movesComments: DS.hasMany('newsComments', {
+  movesComments: DS.hasMany('movesComments', {
     inverse: 'author',
     async: true
   }),

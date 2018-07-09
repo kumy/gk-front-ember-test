@@ -4,7 +4,7 @@ import Ember from 'ember';
 const {dasherize} = Ember.String;
 
 export default JSONAPISerializer.extend({
-  alwaysIncludeLinkageData: true,
+  // alwaysIncludeLinkageData: true,
   keyForAttribute(key) {
     return dasherize(key);
   },

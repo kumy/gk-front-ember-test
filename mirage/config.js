@@ -12,6 +12,8 @@ export default function() {
   this.get('/users/:id');
   this.get('/news');
   this.get('/news/:id');
+  this.get('/news/:id/author', 'users');
+  this.get('/news/:id/news-comments');
   this.get('/news-comments');
   this.get('/news-comments/:id');
 

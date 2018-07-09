@@ -5,7 +5,7 @@
 
   {{news-show news=model}}
   <hr>
-  {{#each model.newsComments as |newscomment|}}
+  {{#each (sort-by "createdOnDateTime:desc" model.newsComments) as |newscomment|}}
     {{news-comment-show comment=newscomment}}
   {{/each}}
   <hr>

@@ -3,7 +3,7 @@
     <h1>News</h1>
   </div>
 
-  {{#each model as |a-news|}}
+  {{#each (sort-by "createdOnDateTime:desc" model) as |a-news|}}
     {{news-show news=a-news}}
   {{/each}}
 

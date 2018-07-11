@@ -7,7 +7,7 @@ body {
 }
 
 .wrapper>.container {
-  /* margin-top: 50px; */
+  margin-top: 70px;
   padding-bottom: 25px;
 }
 
@@ -373,4 +373,8 @@ footer.footer {
 .new-account {
   display: block;
   margin-top: 10px;
+}
+
+.leaflet-container {
+  height: 400px;
 }

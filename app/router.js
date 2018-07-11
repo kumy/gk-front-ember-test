@@ -22,8 +22,8 @@ Router.map(function() {
   this.route('user', {path: '/users/:user_id'});
   this.route('news');
   this.route('news-details', {path: '/news/:news_id'});
-  this.route('base');
-  this.route('tttt');
+  this.route('geokrety');
+  this.route('geokret-details', {path: '/geokrety/:geokret_id'});
 });
 
 export default Router;

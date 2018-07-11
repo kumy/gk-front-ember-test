@@ -20,25 +20,25 @@ export default DS.Model.extend({
     async: true
   }),
   lastLog: DS.belongsTo('move', {
-    inverse: 'geokret',
+    // inverse: 'geokret',
     async: true
   }),
   holder: DS.belongsTo('user', {
     inverse: 'geokretyInventory',
     async: true
   }),
-  avatar: DS.belongsTo('picture', {
-    inverse: 'geokret',
-    async: true
-  }),
+  // avatar: DS.belongsTo('picture', {
+  //   inverse: 'geokret',
+  //   async: true
+  // }),
   type: DS.belongsTo('geokrety-type', {
-    inverse: 'geokrety',
+  //   inverse: 'geokrety',
     async: true
   }),
-  rates: DS.hasMany('rate', {
-    inverse: 'geokrety',
-    async: true
-  }),
+  // rates: DS.hasMany('rate', {
+  //   inverse: 'geokrety',
+  //   async: true
+  // }),
   moves: DS.hasMany('move', {
     inverse: 'geokret',
     async: true

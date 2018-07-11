@@ -16,5 +16,7 @@ export default function() {
   this.get('/news/:id/news-comments');
   this.get('/news-comments');
   this.get('/news-comments/:id');
+  this.get('/geokrety');
+  this.get('/geokrety/:id');
 
 }

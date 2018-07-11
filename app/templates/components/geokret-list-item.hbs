@@ -1,0 +1,18 @@
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">{{geokret.name}}</h3>
+  </div>
+  <div class="panel-body">
+    {{{geokret.description}}}
+  </div>
+  <div class="panel-footer">
+    <div class="pull-right">
+      <span data-test-geokret-moves-count>{{#link-to "geokret-details" geokret.id}}Moves ({{geokret.cachesCount}}){{/link-to}}</span>
+      -
+      <span data-test-geokret-date>{{moment-format geokret.createdOnDateTime 'MMMM D, YYYY'}}</span>
+      -
+      <span data-test-geokret-author>{{#link-to-user user=geokret.author}}{{geokret.owner.name}}{{/link-to-user}}</span>
+    </div>
+    <div class="clearfix"></div>
+  </div>
+</div>

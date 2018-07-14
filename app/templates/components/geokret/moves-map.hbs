@@ -1,4 +1,4 @@
-{{#leaflet-map bounds=bounds fitBoundsOptions=(hash paddingTopLeft=(point 0 0) paddingBottomRight=(point 0 0) padding=10 maxZoom=10 ) scrollWheelZoom=false}}
+{{#leaflet-map bounds=bounds fitBoundsOptions=(hash paddingTopLeft=(point 0 0) paddingBottomRight=(point 0 0) padding=10 maxZoom=10 ) scrollWheelZoom=false tap=isNotMobile dragging=isNotMobile}}
   {{tile-layer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" attribution="Map data © <a href=\"http://openstreetmap.org\">OpenStreetMap</a> contributors"}}
 
   {{#each (sort-by "createdOnDateTime:desc" moves) as |move|}}

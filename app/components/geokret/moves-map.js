@@ -24,4 +24,8 @@ export default Component.extend({
     return [];
   }),
 
+  isNotMobile: computed(function() {
+    return !this.get('isMobile.any');
+  }),
+
 }).reopenClass({positionalParams: 'moves'});

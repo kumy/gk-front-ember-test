@@ -28,4 +28,6 @@ export default Component.extend({
     return !this.get('isMobile.any');
   }),
 
-}).reopenClass({positionalParams: 'moves'});
+}).reopenClass({
+  positionalParams: ['moves']
+});

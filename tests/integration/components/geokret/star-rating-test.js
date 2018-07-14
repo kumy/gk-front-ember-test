@@ -4,7 +4,7 @@ import { render } from '@ember/test-helpers';
 import hbs from 'htmlbars-inline-precompile';
 import {startMirage} from 'geokrety-front/initializers/ember-cli-mirage';
 
-module('Integration | Component | geokret/properties-table', function(hooks) {
+module('Integration | Component | geokret/star-rating', function(hooks) {
   setupRenderingTest(hooks);
   hooks.beforeEach(function() {
     this.server = startMirage();
@@ -19,7 +19,7 @@ module('Integration | Component | geokret/properties-table', function(hooks) {
     let geokret = server.create('geokret', 'typeTraditional', 'withGrab');
     this.set('geokret', geokret);
 
-    await render(hbs`{{geokret/properties-table geokret=geokret}}`);
-    assert.notEqual(this.element.textContent.trim(), '');
+    await render(hbs`{{geokret/star-rating geokret=geokret}}`);
+    assert.equal(this.element.textContent.trim(), '');
   });
 });

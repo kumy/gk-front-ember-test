@@ -25,7 +25,7 @@ body {
 }
 
 .welcome-text {
-  padding-top: 120px;
+  padding-top: 100px;
 }
 
 .welcome-text>h1 {
@@ -34,7 +34,7 @@ body {
   font-weight: 400;
   line-height: 72px;
   margin: 0;
-  text-transform: capitalize;
+  /* text-transform: capitalize; */
 }
 
 .welcome-subtext {
@@ -44,7 +44,24 @@ body {
   font-weight: 400;
   line-height: 72px;
   margin: 0;
-  text-transform: capitalize;
+  /* text-transform: capitalize; */
+}
+
+@media only screen and (max-device-width: 480px) {
+  .welcome-text {
+    padding-top: 30px;
+  }
+  .welcome-text>h1 {
+    font-size: 45px;
+    line-height: 50px;
+  }
+  .welcome-subtext {
+    font-size: 30px;
+    line-height: 40px;
+  }
+  .landing-picture {
+    height: 650px;
+  }
 }
 
 .page-header {

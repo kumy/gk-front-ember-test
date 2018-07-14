@@ -21,6 +21,12 @@ env:
 before_install:
   - npm config set spin false
 
+install:
+  - npm install -g bower
+  - npm install
+  - bower install
+
+
 script:
   - npm run lint:js
   - npm test

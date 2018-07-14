@@ -3,22 +3,22 @@ import { setupRenderingTest } from 'ember-qunit';
 import { render } from '@ember/test-helpers';
 import hbs from 'htmlbars-inline-precompile';
 
-module('Integration | Component | links/mail-user', function(hooks) {
+module('Integration | Component | pictures/avatar-medium', function(hooks) {
   setupRenderingTest(hooks);
 
   test('it renders', async function(assert) {
     // Set any properties with this.set('myProperty', 'value');
     // Handle any actions with this.set('myAction', function(val) { ... });
 
-    await render(hbs`{{links/mail-user}}`);
+    await render(hbs`{{pictures/avatar-medium}}`);
 
-    assert.in(this.element.querySelector('[data-test-fa-icon-envelope]').getAttribute('class'), 'fa-envelope');
+    assert.equal(this.element.textContent.trim(), '');
 
     // Template block usage:
     await render(hbs`
-      {{#links/mail-user}}
+      {{#pictures/avatar-medium}}
         template block text
-      {{/links/mail-user}}
+      {{/pictures/avatar-medium}}
     `);
 
     assert.equal(this.element.textContent.trim(), 'template block text');

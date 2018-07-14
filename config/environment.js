@@ -23,7 +23,7 @@ module.exports = function(environment) {
     },
 
     fastboot: {
-      hostWhitelist: ['192.168.125.64:4200', 'front.geokrety.house.kumy.net', /^localhost:\d+$/, /^front.geokrety.house.kumy.net:\d+$/]
+      hostWhitelist: ['192.168.125.64:4200', 'front.geokrety.house.kumy.net', /^localhost:\d+$/, /^front.geokrety.house.kumy.net:\d+$/, '0.0.0.0:4000']
     }
   };
 
@@ -59,6 +59,9 @@ module.exports = function(environment) {
 
   if (environment === 'production') {
     // here you can enable a production-specific feature
+    ENV['ember-cli-mirage'] = {
+      enabled: false
+    };
   }
 
   return ENV;

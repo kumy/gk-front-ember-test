@@ -13,6 +13,9 @@ export default Factory.extend({
   distance() {
     return faker.random.number(10000);
   },
+  avatarUrl() {
+    return faker.image.avatar();
+  },
   cachesCount() {
     return faker.random.number(10);
   },
@@ -54,12 +57,12 @@ export default Factory.extend({
 
   withGrab: trait({
     afterCreate(geokret, server) {
-      server.create('move', 'typeGrab', { geokret });
+      server.createList('move', geokret.cachesCount, 'typeGrab', { geokret });
     }
   }),
   withDrop: trait({
     afterCreate(geokret, server) {
-      server.create('move', 'typeDrop', { geokret });
+      server.createList('move', geokret.cachesCount, 'typeDrop', { geokret });
     }
   }),
   withMoves: trait({

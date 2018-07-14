@@ -1,0 +1,15 @@
+{{#leaflet-map bounds=bounds fitBoundsOptions=(hash paddingTopLeft=(point 0 0) paddingBottomRight=(point 0 0) padding=10 maxZoom=10 ) scrollWheelZoom=false}}
+  {{tile-layer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" attribution="Map data © <a href=\"http://openstreetmap.org\">OpenStreetMap</a> contributors"}}
+
+  {{#each (sort-by "createdOnDateTime:desc" moves) as |move|}}
+    {{#marker-layer lat=move.latitude lng=move.longitude}}
+      {{#popup-layer}}
+        <h3>{{move.waypoint}}</h3>
+      {{/popup-layer}}
+    {{/marker-layer}}
+  {{/each}}
+
+  {{#polyline-layer locations=locations}}
+  {{/polyline-layer}}
+
+{{/leaflet-map}}

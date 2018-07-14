@@ -1,0 +1,36 @@
+<table class="table">
+  <tbody>
+    <tr>
+      <th scope="row">Reference Number</th>
+      <td>{{gknum geokret.id}}</td>
+    </tr>
+    <tr>
+      <th scope="row">Tracking Code</th>
+      <td>{{geokret.trackingCode}}</td>
+    </tr>
+    <tr>
+      <th scope="row">Type</th>
+      <td>{{geokret.type.name}}</td>
+    </tr>
+    <tr>
+      <th scope="row">Owner</th>
+      <td>{{link-to-user user=geokret.owner}}</td>
+    </tr>
+    <tr>
+      <th scope="row">Total distance</th>
+      <td>{{geokret.distance}} km</td>
+    </tr>
+    <tr>
+      <th scope="row">Places visited</th>
+      <td>{{geokret.cachesCount}}</td>
+    </tr>
+    <tr>
+      <th scope="row">Rated</th>
+      <td>{{geokret.averageRating}}/5</td>
+    </tr>
+    <tr>
+      <th scope="row">Watchers</th>
+      <td>{{fa-icon "question-circle"}}</td>
+    </tr>
+  </tbody>
+</table>

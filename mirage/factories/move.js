@@ -26,7 +26,7 @@ export default Factory.extend({
     return faker.random.number(1111);
   },
   country() {
-    return faker.address.country();
+    return faker.address.countryCode().toLowerCase();
   },
   distance() {
     return faker.random.number(10000);

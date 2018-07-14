@@ -3,22 +3,19 @@ import { setupRenderingTest } from 'ember-qunit';
 import { render } from '@ember/test-helpers';
 import hbs from 'htmlbars-inline-precompile';
 
-module('Integration | Component | geokret-show', function(hooks) {
+module('Integration | Component | move-show', function(hooks) {
   setupRenderingTest(hooks);
 
   test('it renders', async function(assert) {
-    // Set any properties with this.set('myProperty', 'value');
-    // Handle any actions with this.set('myAction', function(val) { ... });
-
-    await render(hbs`{{geokret-show}}`);
+    await render(hbs`{{move-show}}`);
 
     assert.equal(this.element.textContent.trim(), '');
 
     // Template block usage:
     await render(hbs`
-      {{#geokret-show}}
+      {{#move-show}}
         template block text
-      {{/geokret-show}}
+      {{/move-show}}
     `);
 
     assert.equal(this.element.textContent.trim(), 'template block text');

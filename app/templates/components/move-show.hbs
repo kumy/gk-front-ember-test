@@ -1,0 +1,38 @@
+<div class="panel panel-default">
+
+  <div class="panel-heading">
+    {{move.type.name}} - {{ui-flag move.country}} {{uppercase move.waypoint}}
+    <div class="pull-right">
+      <span data-test-news-date>{{moment-format move.createdOnDateTime 'MMMM D, YYYY'}}</span> / {{link-to-user user=move.author}}
+    </div>
+  </div>
+
+  <div class="panel-body">
+    <div class="row">
+      <div class="col-md-1">
+        {{icons/move-type geokret=move.geokret move=move}}
+        <small>{{move.distance}} km</small>
+      </div>
+      <div class="col-md-11">
+        {{move.comment}}
+      </div>
+    </div>
+  </div>
+
+  <!-- List group -->
+  <ul class="list-group">
+    <li class="list-group-item clearfix">
+      <span class="pull-right">
+        <a class="btn" href="#" role="button">{{fa-icon "comment"}}</a>
+        <a class="btn" href="#" role="button">{{fa-icon "camera"}}</a>
+        <a class="btn" href="#" role="button">{{fa-icon "pencil"}}</a>
+        <a class="btn" href="#" role="button">{{fa-icon "trash"}}</a>
+      </span>
+    </li>
+  </ul>
+
+  <div class="panel-body">
+    {{link-to-user user=move.author}}: Move comment
+  </div>
+
+</div>

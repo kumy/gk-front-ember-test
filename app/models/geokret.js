@@ -5,6 +5,7 @@ export default DS.Model.extend({
   description: DS.attr('string'),
   missing: DS.attr('boolean'),
   distance: DS.attr('number'),
+  avatarUrl: DS.attr('string'),
   cachesCount: DS.attr('number'),
   picturesCount: DS.attr('number'),
   averageRating: DS.attr('number'),

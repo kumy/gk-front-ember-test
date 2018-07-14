@@ -1,4 +1,5 @@
 import DS from 'ember-data';
+import {computed} from '@ember/object';
 
 export default DS.Model.extend({
   waypoint: DS.attr('string'),
@@ -15,6 +16,12 @@ export default DS.Model.extend({
   picturesCount: DS.attr('number'),
   createdOnDateTime: DS.attr('date'),
   updatedOnDateTime: DS.attr('date'),
+
+  location: computed('latitude', 'longitude', function() {
+    var latitude = this.get('latitude');
+    var longitude = this.get('longitude');
+    return [latitude, longitude];
+  }),
 
   type: DS.belongsTo('moves-type', {
     inverse: 'moves',

@@ -7,7 +7,7 @@ export default Route.extend({
     return hash({
       news: this.get('store').query('news', {
         include: 'author',
-        // sort: '-created-on-date-time',
+        sort: '-created-on-date-time',
         page: {
           size: 3,
           number: 1

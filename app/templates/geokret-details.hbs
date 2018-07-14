@@ -7,83 +7,58 @@
     <li>
       {{#link-to "geokrety"}}GeoKrety{{/link-to}}
     </li>
-    <li class="active">GKB65C - {{model.name}}</li>
+    <li class="active">{{model.name}}</li>
   </ol>
 
   <div class="row">
     <div class="col-lg-8 col-sm-4 col-xs-12">
       <div class="jumbotron">
         <h1>{{model.name}}</h1>
-        <p>{{model.description}}</p>
-        <hr>
-
-        <div class="btn-group btn-group-justified hidden-xs">
-          <a class="btn btn-default btn-lg" href="#" role="button">{{fa-icon "arrow-up fa-lg fa-fw"}} Grab</a>
-          <a class="btn btn-default btn-lg" href="#" role="button">{{fa-icon "eye fa-lg fa-fw"}} Seen</a>
-          <a class="btn btn-default btn-lg" href="#" role="button">{{fa-icon "comment fa-lg fa-fw"}} Comment</a>
-        </div>
-        <div class="btn-group-vertical visible-xs">
-          <a class="btn btn-default btn-lg" href="#" role="button">{{fa-icon "arrow-up fa-lg fa-fw"}} Grab</a>
-          <a class="btn btn-default btn-lg" href="#" role="button">{{fa-icon "eye fa-lg fa-fw"}} Seen</a>
-          <a class="btn btn-default btn-lg" href="#" role="button">{{fa-icon "comment fa-lg fa-fw"}} Comment</a>
-        </div>
+        <p>{{{model.description}}}</p>
+        <hr> {{geokret/moves-actions-buttons}}
       </div>
     </div>
 
     <div class="col-lg-4 col-sm-4 col-xs-12">
       <div class="panel panel-default">
-        <!-- Default panel contents -->
         <div class="panel-body">
-          {{icons/geokret-type gktype=model.type.id}} {{model.type.name}}
+          {{pictures/avatar-medium pictureUrl=model.avatarUrl}}
         </div>
-        <!-- <div class="panel-body">
-          <p>...</p>{{links/mail-user user=model.owner}}
-        </div> -->
 
-        <table class="table">
-          <tbody>
-            <tr>
-              <th scope="row">Owner</th>
-              <td>
-                {{link-to-user user=model.owner}}
-              </td>
-            </tr>
-            <tr>
-              <th scope="row">Reference Number</th>
-              <td>{{model.id}}</td>
-            </tr>
-            <tr>
-              <th scope="row">Total distance</th>
-              <td>{{model.distance}} km</td>
-            </tr>
-            <tr>
-              <th scope="row">Places visited</th>
-              <td>{{model.cachesCount}}</td>
-            </tr>
-            <tr>
-              <th scope="row">Rating</th>
-              <td>{{model.averageRating}}/5</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
+        {{geokret/properties-table geokret=model}}
 
-      <div class="panel panel-default">
         <div class="panel-body">
-          * Watch this GeoKret (0) * Email the owner * View photo gallery (0) * Statistics
+          {{geokret/actions-buttons}}
         </div>
       </div>
     </div>
+  </div>
 
+  <div class="panel panel-default">
+    <div class="panel-heading">Pictures</div>
+    <div class="panel-body">
+      <div class="row">
+        {{#each (repeat model.picturesCount) as |empty|}}
+          <div class="col-md-2">
+            {{pictures/avatar-medium pictureUrl=model.avatarUrl}}
+          </div>
+        {{/each}}
+      </div>
+    </div>
   </div>
 
   <div class="panel panel-default">
     <div class="panel-heading">Map</div>
     <div class="panel-body">
-      {{#leaflet-map lat=43.594 lng=6.952 zoom=8}}
-        {{tile-layer url="https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png"}}
-      {{/leaflet-map}}
+      {{geokret/moves-map moves=model.moves}}
     </div>
   </div>
+
+  <hr>
+
+  {{#each (sort-by "createdOnDateTime:desc" model.moves) as |move|}}
+    {{move-show move=move}}
+  {{/each}}
+
 
 </div>

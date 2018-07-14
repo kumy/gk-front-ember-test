@@ -11,8 +11,8 @@ export default function(server) {
 
   server.create('news', 'withoutAuthor');
   server.create('user', 'withFiveNews');
-  server.create('geokret', 'typeTraditional');
+  server.create('geokret');
   server.create('geokret', 'typeTraditional', 'withGrab');
   server.create('geokret', 'typeTraditional', 'withDrop');
-  server.create('geokret', 'typeTraditional', 'withMoves');
+  server.createList('geokret', 2, 'typeTraditional', 'withMoves');
 }

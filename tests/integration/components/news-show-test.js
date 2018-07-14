@@ -25,10 +25,15 @@ module('Integration | Component | news show', function(hooks) {
 
     await render(hbs `{{news-show news=news}}`);
 
-    assert.equal(this.element.querySelector('h3.panel-title').textContent.trim(), 'A title');
-    assert.equal(this.element.querySelector('div.panel-body').textContent.trim(), 'A news content');
-    assert.equal(this.element.querySelector('span.news-comments-count').textContent.trim(), 'Comments (3)');
-    assert.equal(this.element.querySelector('span.news-date').textContent.trim(), 'April 17, 2018');
-    assert.equal(this.element.querySelector('span.news-author').textContent.trim(), 'GK Team');
+    assert.dom('[data-test-news-title]').exists();
+    assert.dom('[data-test-news-content]').exists();
+    assert.dom('[data-test-news-comments-count]').exists();
+    assert.dom('[data-test-news-date]').exists();
+    assert.dom('[data-test-news-author]').exists();
+
+    assert.dom('[data-test-news-title]').hasText(news.title);
+    assert.dom('[data-test-news-content]').hasText(news.content);
+    assert.dom('[data-test-news-comments-count]').hasText("Comments ("+news.commentsCount+")");
+    assert.dom('[data-test-news-author]').hasText(news.username);
   });
 });

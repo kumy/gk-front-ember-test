@@ -2,22 +2,28 @@ import { module, test } from 'qunit';
 import { setupRenderingTest } from 'ember-qunit';
 import { render } from '@ember/test-helpers';
 import hbs from 'htmlbars-inline-precompile';
+import {startMirage} from 'geokrety-front/initializers/ember-cli-mirage';
 
 module('Integration | Component | move-show', function(hooks) {
   setupRenderingTest(hooks);
+  hooks.beforeEach(function() {
+    this.server = startMirage();
+    server.loadFixtures('geokrety-types');
+    server.loadFixtures('moves-types');
+  });
+  hooks.afterEach(function() {
+    this.server.shutdown();
+  });
 
   test('it renders', async function(assert) {
-    await render(hbs`{{move-show}}`);
+    // let geokret = server.create('geokret', 'typeTraditional');
+    let move = server.create('move', 'typeGrab');
+    this.set('move', move);
 
-    assert.equal(this.element.textContent.trim(), '');
+    await render(hbs`{{move-show move=move}}`);
 
-    // Template block usage:
-    await render(hbs`
-      {{#move-show}}
-        template block text
-      {{/move-show}}
-    `);
-
-    assert.equal(this.element.textContent.trim(), 'template block text');
+    assert.dom('[data-test-move-date]').exists();
+    assert.dom('[data-test-move-comment]').exists();
+    assert.dom('[data-test-move-comment]').hasText(move.comment);
   });
 });

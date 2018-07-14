@@ -3,7 +3,7 @@
   <div class="panel-heading">
     {{move.type.name}} - {{ui-flag move.country}} {{uppercase move.waypoint}}
     <div class="pull-right">
-      <span data-test-news-date>{{moment-format move.createdOnDateTime 'MMMM D, YYYY'}}</span> / {{link-to-user user=move.author}}
+      <span data-test-move-date>{{moment-format move.createdOnDateTime 'MMMM D, YYYY'}}</span> / {{link-to-user user=move.author}}
     </div>
   </div>
 
@@ -13,7 +13,7 @@
         {{icons/move-type geokret=move.geokret move=move}}
         <small>{{move.distance}} km</small>
       </div>
-      <div class="col-md-11">
+      <div class="col-md-11" data-test-move-comment>
         {{move.comment}}
       </div>
     </div>

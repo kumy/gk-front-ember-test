@@ -62,7 +62,7 @@
     "loader.js": "^4.2.3",
     "node-fetch": "^2.1.2",
     "qunit-dom": "^0.7.0",
-    "ui-flag": "^0.2.0"
+    "ui-flag": "https://github.com/kumy/ui-flag.git#master"
   },
   "engines": {
     "node": "6.* || 8.* || >= 10.*"

@@ -57,12 +57,17 @@ export default Factory.extend({
 
   withGrab: trait({
     afterCreate(geokret, server) {
-      server.createList('move', geokret.cachesCount, 'typeGrab', { geokret });
+      server.create('move', 'typeGrab', { geokret });
     }
   }),
   withDrop: trait({
     afterCreate(geokret, server) {
-      server.createList('move', geokret.cachesCount, 'typeDrop', { geokret });
+      server.create('move', 'typeDrop', { geokret });
+    }
+  }),
+  typeVisit: trait({
+    afterCreate(geokret, server) {
+      server.create('move', 'typeVisit', { geokret });
     }
   }),
   withMoves: trait({

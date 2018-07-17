@@ -1,7 +1,7 @@
-{{#link-to 'user' user.id}}
+{{#link-to-user user.id}}
   {{#if (has-block)}}
     {{yield}}
   {{else}}
     {{fa-icon "envelope" data-test-fa-icon-envelope}}
   {{/if}}
-{{/link-to}}
+{{/link-to-user}}

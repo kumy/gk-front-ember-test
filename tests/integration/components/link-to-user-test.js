@@ -40,7 +40,7 @@ module('Integration | Component | link to user', function(hooks) {
     await render(hbs `{{#link-to-user}}Hello{{/link-to-user}}`);
     assert.equal(this.$().text().trim(), 'Hello');
 
-    await render(hbs `{{link-to-user user=user}}`);
+    await render(hbs `{{link-to-user user}}`);
     assert.equal(this.element.querySelector('a').textContent.trim(), 'kumy');
   });
 });

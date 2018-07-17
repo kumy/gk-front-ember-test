@@ -7,11 +7,11 @@
   </div>
   <div class="panel-footer">
     <div class="pull-right">
-      <span data-test-geokret-moves-count>{{#link-to "geokret-details" geokret.id}}Moves ({{geokret.cachesCount}}){{/link-to}}</span>
+      <span data-test-geokret-moves-count>{{#link-to "geokrety.show" geokret.id}}Moves ({{geokret.cachesCount}}){{/link-to}}</span>
       -
-      <span data-test-geokret-date>{{moment-format geokret.createdOnDateTime 'MMMM D, YYYY'}}</span>
+      <span data-test-geokret-date>{{moment-format geokrety.createdOnDateTime 'MMMM D, YYYY'}}</span>
       -
-      <span data-test-geokret-author>{{#link-to-user user=geokret.author}}{{geokret.owner.name}}{{/link-to-user}}</span>
+      <span data-test-geokret-author>{{#link-to-user geokret.owner}}{{geokret.owner.name}}{{/link-to-user}}</span>
     </div>
     <div class="clearfix"></div>
   </div>

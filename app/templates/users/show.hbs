@@ -1,0 +1,22 @@
+<div class="container">
+
+  <ol class="breadcrumb">
+    <li>
+      {{#link-to "index"}}Home{{/link-to}}
+    </li>
+    <li>
+      {{#link-to "users"}}Users{{/link-to}}
+    </li>
+    <li class="active">{{model.name}}</li>
+  </ol>
+
+  <div class="row">
+    <div class="col-lg-8 col-sm-4 col-xs-12">
+      <div class="jumbotron">
+        <h1>{{model.name}}</h1>
+        <p>{{{model.description}}}</p>
+        <hr> {{geokret/moves-actions-buttons}}
+      </div>
+    </div>
+  </div>
+</div>

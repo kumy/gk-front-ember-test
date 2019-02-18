@@ -55,7 +55,7 @@
     "ember-resolver": "^4.0.0",
     "ember-simple-auth": "^1.4.0",
     "ember-simple-auth-token": "^4.0.2",
-    "ember-source": "~3.2.2",
+    "ember-source": "~3.8.0",
     "ember-test-selectors": "^1.0.0",
     "eslint-plugin-ember": "^5.0.0",
     "fastboot-app-server": "^1.1.2-beta.1",

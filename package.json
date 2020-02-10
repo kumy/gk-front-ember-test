@@ -53,7 +53,7 @@
     "ember-mirage-sauce": "0.0.6",
     "ember-moment": "^7.4.1",
     "ember-resolver": "^4.0.0",
-    "ember-simple-auth": "^1.4.0",
+    "ember-simple-auth": "^3.0.0",
     "ember-simple-auth-token": "^4.0.2",
     "ember-source": "~3.2.2",
     "ember-test-selectors": "^1.0.0",
